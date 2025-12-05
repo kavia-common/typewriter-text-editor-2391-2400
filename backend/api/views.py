@@ -1,6 +1,7 @@
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+# Minimal health endpoint only, now handled in texts app as well.
+from django.http import JsonResponse
 
-@api_view(['GET'])
+# PUBLIC_INTERFACE
 def health(request):
-    return Response({"message": "Server is up!"})
+    """Health check endpoint that returns {status: 'ok'}."""
+    return JsonResponse({"status": "ok"})
